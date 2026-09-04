@@ -1,0 +1,8 @@
+[
+  { "id": "placeholder-1", "name": "Спикер будет объявлен", "photo": "", "role": "", "org": "", "topic": "", "description": "", "day": "day-20", "format": "офлайн", "status": "ожидается", "streamUrl": "", "recordUrl": "" },
+  { "id": "placeholder-2", "name": "Спикер будет объявлен", "photo": "", "role": "", "org": "", "topic": "", "description": "", "day": "day-21", "format": "онлайн", "status": "ожидается", "streamUrl": "", "recordUrl": "" },
+  { "id": "placeholder-3", "name": "Спикер будет объявлен", "photo": "", "role": "", "org": "", "topic": "", "description": "", "day": "day-22", "format": "офлайн", "status": "ожидается", "streamUrl": "", "recordUrl": "" },
+  { "id": "placeholder-4", "name": "Спикер будет объявлен", "photo": "", "role": "", "org": "", "topic": "", "description": "", "day": "day-26", "format": "онлайн", "status": "ожидается", "streamUrl": "", "recordUrl": "" },
+  { "id": "placeholder-5", "name": "Спикер будет объявлен", "photo": "", "role": "", "org": "", "topic": "", "description": "", "day": "day-27", "format": "офлайн", "status": "ожидается", "streamUrl": "", "recordUrl": "" },
+  { "id": "placeholder-6", "name": "Спикер будет объявлен", "photo": "", "role": "", "org": "", "topic": "", "description": "", "day": "day-24", "format": "онлайн", "status": "ожидается", "streamUrl": "", "recordUrl": "" }
+]

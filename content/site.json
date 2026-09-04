@@ -1,0 +1,55 @@
+{
+  "year": 2026,
+  "dates": { "start": "2026-09-19", "end": "2026-09-28", "display": "19–28 сентября" },
+  "title": "Форум-Фестиваль «Преображение»",
+  "slogan": "Там русский дух, там Русью пахнет…",
+  "subtitle": "Единение человечества как единого и множественного нашего Рода",
+  "location": {
+    "region": "Абхазия",
+    "area": "горы за Сухумом, посёлок Члоу",
+    "place": "сакральное место «Глубокая чаша»",
+    "mapEmbedUrl": ""
+  },
+  "cta": {
+    "participate": "Принять участие",
+    "program": "Смотреть программу",
+    "speaker": "Стать спикером или партнёром"
+  },
+  "contacts": {
+    "phone": "NEXT_PUBLIC_CONTACT_PHONE",
+    "email": "NEXT_PUBLIC_CONTACT_EMAIL",
+    "telegram": "NEXT_PUBLIC_TELEGRAM_URL",
+    "vk": "NEXT_PUBLIC_VK_URL",
+    "address": "Уточняется организатором"
+  },
+  "streaming": {
+    "platformName": "Талант",
+    "platformUrl": "",
+    "radioUrl": "",
+    "videoUrl": ""
+  },
+  "seo": {
+    "title": "Форум-Фестиваль «Преображение» — 19–28 сентября, Абхазия",
+    "description": "Форум-Фестиваль «Преображение» в сакральном месте «Глубокая чаша», Абхазия. Наука, культура, музыка, ремёсла и природоподобные технологии — очно и онлайн.",
+    "ogImage": "/images/og-cover.jpg"
+  },
+  "sections": {
+    "about": true,
+    "location": true,
+    "mission": true,
+    "programTimeline": true,
+    "offlineProgram": true,
+    "onlineProgram": true,
+    "speakers": true,
+    "practices": true,
+    "center": true,
+    "pricing": true,
+    "packages": true,
+    "registration": true,
+    "speakerForm": true,
+    "partnerForm": true,
+    "stream": true,
+    "faq": true,
+    "contacts": true
+  }
+}

@@ -1,0 +1,28 @@
+# deps
+node_modules
+.pnp
+.pnp.js
+
+# next
+.next/
+out/
+build/
+
+# env
+.env
+.env.local
+.env.production
+.env*.local
+
+# misc
+.DS_Store
+*.log
+npm-debug.log*
+coverage/
+
+# local content edits made through admin (keep example, ignore working copies if desired)
+data/submissions/*.json
+!data/submissions/.gitkeep
+
+# supabase
+.supabase/

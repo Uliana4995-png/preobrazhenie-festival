@@ -1,0 +1,37 @@
+{
+  "effectsLevel": "full",
+  "stars": true,
+  "milkyWay": true,
+  "glowIntensity": 1,
+  "cardOpacity": 0.14,
+  "mobileLiteMode": true,
+  "colors": {
+    "fuchsia": "#FF2BC2",
+    "gold": "#FFD978",
+    "turquoise": "#22E6D2"
+  },
+  "images": {
+    "phoenix": "",
+    "mandala": "",
+    "campsite": "",
+    "dove": "",
+    "introVideo": ""
+  },
+  "sectionSigils": {
+    "hero": "crystalstar",
+    "about": "twotriangles",
+    "location": "shellspiral",
+    "mission": "flower",
+    "program": "mandala",
+    "campfire": "infinity",
+    "online": "triquetra",
+    "pricing": "lotus",
+    "gallery": "dotcircle",
+    "faq": "sun"
+  },
+  "introSplash": {
+    "enabled": true,
+    "skippable": true,
+    "rememberChoice": true
+  }
+}

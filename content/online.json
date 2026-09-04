@@ -1,0 +1,25 @@
+{
+  "status": "запись",
+  "currentShow": {
+    "title": "",
+    "topic": "",
+    "speakerName": "",
+    "speakerPhoto": ""
+  },
+  "nextEventAt": "",
+  "links": {
+    "talantPlatform": "",
+    "radioUrl": "",
+    "videoUrl": ""
+  },
+  "chatEmbedUrl": "",
+  "archive": [],
+  "campStream": {
+    "enabled": true,
+    "title": "Эфир из лагеря",
+    "description": "Отдельная трансляция атмосферы фестиваля прямо из палаточного лагеря в горах — костёр, музыка, вечерние практики. Запись эфира сохраняется в архив.",
+    "status": "запись",
+    "videoUrl": "",
+    "recordingEnabled": true
+  }
+}

@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===================== Design tokens ===================== */
+:root {
+  --c-void: #120625;
+  --c-indigo: #1C1140;
+  --c-fuchsia: #FF2BC2;
+  --c-turquoise: #22E6D2;
+  --c-pearl: #F8F4FF;
+  --c-pearl-soft: #EADCF7;
+  --c-gold: #FFD978;
+  --c-moss: #486A50;
+  --c-crystal: #8EEBFF;
+  --glow-intensity: 1;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--c-void);
+}
+
+/* Три уровня визуальных эффектов, переключаются атрибутом data-fx на <html>
+   (значение приходит из content/appearance.json через layout). */
+html[data-fx='minimal'] .fx-heavy,
+html[data-fx='minimal'] .fx-medium { display: none !important; }
+html[data-fx='optimized'] .fx-heavy { display: none !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  background-color: var(--c-void);
+  color: var(--c-pearl);
+}
+
+/* ===================== Перламутровые пластичные карточки ===================== */
+.pearl-card {
+  position: relative;
+  background: linear-gradient(160deg, rgba(248,244,255,0.14), rgba(248,244,255,0.03) 55%, rgba(255,43,194,0.05));
+  border: 1px solid rgba(255,217,120,0.28);
+  backdrop-filter: blur(10px);
+  border-radius: 42px 26px 46px 24px / 26px 42px 24px 46px;
+  box-shadow: 0 10px 34px rgba(0,0,0,0.35), inset 0 0 24px rgba(255,255,255,0.06);
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+.pearl-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 44px rgba(0,0,0,0.4), 0 0 30px rgba(255,43,194,0.18), inset 0 0 24px rgba(255,255,255,0.08);
+}
+.pearl-card.tight { border-radius: 30px 18px 34px 16px / 18px 30px 16px 34px; padding: 24px 26px; }
+
+.text-gradient {
+  background: linear-gradient(90deg, var(--c-fuchsia), var(--c-gold), var(--c-turquoise));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+
+.rule-gold { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,217,120,0.6), transparent); }
+
+:focus-visible { outline: 2px solid var(--c-turquoise); outline-offset: 3px; border-radius: 2px; }
+::selection { background: rgba(255,43,194,0.35); color: #fff; }
+
+/* ===================== Заголовки: изящный лёгкий гротеск, заглавные, свечение ===================== */
+.heading-loft {
+  font-family: var(--font-display), sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.015em;
+  font-weight: 550;
+  line-height: 1.14;
+  color: var(--c-pearl);
+  text-shadow:
+    0 0 2px rgba(255,255,255,0.45),
+    0 0 14px rgba(34,230,210, calc(0.4 * var(--glow-intensity))),
+    0 0 24px rgba(255,43,194, calc(0.32 * var(--glow-intensity))),
+    0 2px 8px rgba(0,0,0,0.5);
+}
+/* h1 крупнее остальных, но пропорционально легче прежнего */
+h1.heading-loft, .heading-loft.text-4xl, .heading-loft.text-5xl, .heading-loft.text-6xl {
+  font-weight: 600;
+}
+
+/* ===================== Формы ===================== */
+.input {
+  width: 100%;
+  background: rgba(248,244,255,0.05);
+  border: 1px solid rgba(255,217,120,0.32);
+  border-radius: 14px;
+  padding: 0.7rem 1rem;
+  color: var(--c-pearl);
+  font-size: 1rem;
+}
+.input:focus { outline: none; border-color: var(--c-turquoise); }
+.checkbox { accent-color: var(--c-turquoise); width: 1.1rem; height: 1.1rem; }
+.error { color: #ffb3e6; font-size: 0.85rem; }
+
+/* ===================== Вертикальное "перелистывание" (мягкий snap) ===================== */
+.snap-book {
+  scroll-snap-type: y proximity; /* proximity — не блокирует свободную прокрутку */
+}
+.snap-page { scroll-snap-align: start; }
+
+/* Круговые/пирамидальные композиции → простой вертикальный список на мобильных */
+@media (max-width: 768px) {
+  .circle-item {
+    position: static !important;
+    transform: none !important;
+    width: 100% !important;
+    margin-bottom: 12px;
+  }
+}
+@media (max-width: 640px) {
+  .fern-mobile-thin { opacity: 0.5; }
+}
+.reveal { opacity: 0; transform: translateY(24px); }
+.reveal.in-view { animation: fadeUp .8s ease-out both; }

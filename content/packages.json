@@ -1,0 +1,9 @@
+[
+  { "id": "one-day", "title": "Участие на один день", "price": 1777, "priceLabel": "от 1 777 ₽", "unit": "за день, цена растёт по мере приближения фестиваля", "description": "Разовое посещение очной программы одного дня фестиваля. Актуальная цена — в разделе «Кемпинг».", "editableByOrganizer": false },
+  { "id": "multi-day", "title": "Многодневное участие", "price": null, "priceLabel": "Цена задаётся организатором", "unit": "", "description": "Участие в нескольких днях программы по выбору.", "editableByOrganizer": true },
+  { "id": "full-program", "title": "Полная программа", "price": null, "priceLabel": "Цена задаётся организатором", "unit": "", "description": "Участие во всей очной программе с 19 по 28 сентября.", "editableByOrganizer": true },
+  { "id": "tent-spot", "title": "Место в палатке", "price": 1000, "priceLabel": "1 000 ₽", "unit": "с человека", "description": "Место в палатке кемпинга, предоставляемой организатором.", "editableByOrganizer": false },
+  { "id": "own-tent", "title": "Своя палатка", "price": 0, "priceLabel": "Без доплаты", "unit": "", "description": "Размещение со своей палаткой на территории кемпинга.", "editableByOrganizer": false },
+  { "id": "online", "title": "Онлайн-участие", "price": null, "priceLabel": "Цена задаётся организатором", "unit": "", "description": "Доступ к прямым трансляциям и записям онлайн-программы.", "editableByOrganizer": true },
+  { "id": "partner", "title": "Партнёрский пакет", "price": null, "priceLabel": "По запросу", "unit": "", "description": "Индивидуальные условия участия для партнёров и организаций.", "editableByOrganizer": true }
+]
