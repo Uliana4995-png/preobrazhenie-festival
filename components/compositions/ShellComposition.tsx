@@ -2,19 +2,21 @@
 
 /**
  * Композиция «Раковина»: карточки равномерно распределены по кругу
- * вокруг центрального перламутрового свечения. Радиус подобран так,
- * чтобы карточки не перекрывали друг друга даже при 12 элементах.
- * На мобильных — обычная вертикальная последовательность карточек
- * (см. .circle-item в CSS).
+ * вокруг центрального перламутрового свечения. Радиус подобран с запасом
+ * на диагональное перекрытие (карточки — прямоугольники, а не точки,
+ * поэтому одного «расстояния по дуге» недостаточно — нужно, чтобы
+ * соседние карточки не пересекались даже когда смещение разложено
+ * пополам между горизонталью и вертикалью). На мобильных — обычная
+ * вертикальная последовательность карточек (см. .circle-item в CSS).
  */
 export default function ShellComposition({ items }: { items: { title: string; description?: string }[] }) {
   const n = items.length;
-  const cardWidth = 168;
-  // минимальный радиус (в % от ширины контейнера), при котором соседние
-  // карточки на круге не накладываются друг на друга
-  const containerSize = 880;
-  const minRadiusPx = cardWidth / (2 * Math.sin(Math.PI / n)) + 20;
-  const radiusPct = Math.min(40, (minRadiusPx / containerSize) * 100);
+  const cardWidth = 148;
+  const margin = 24;
+  // запас на диагональ (√2) — гарантирует зазор по обеим осям одновременно
+  const minRadiusPx = (cardWidth * Math.SQRT2) / (2 * Math.sin(Math.PI / n)) + margin;
+  const containerSize = Math.min(1040, minRadiusPx / 0.4);
+  const radiusPct = (minRadiusPx / containerSize) * 100;
 
   return (
     <div className="relative mx-auto" style={{ maxWidth: containerSize, aspectRatio: '1 / 1' }}>

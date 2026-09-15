@@ -2,8 +2,8 @@
 
 /**
  * Композиция «Кристаллическая мандала»: блоки равномерно распределены
- * по кругу вокруг центральной темы. Радиус подобран так, чтобы карточки
- * не перекрывали друг друга даже при большом числе элементов.
+ * по кругу вокруг центральной темы. Радиус подобран с запасом на
+ * диагональное перекрытие (карточки — прямоугольники, а не точки).
  */
 export default function MandalaComposition({
   centerLabel,
@@ -13,10 +13,11 @@ export default function MandalaComposition({
   items: { title: string; description?: string }[];
 }) {
   const n = items.length;
-  const cardWidth = 152;
-  const containerSize = 760;
-  const minRadiusPx = cardWidth / (2 * Math.sin(Math.PI / n)) + 16;
-  const radiusPct = Math.min(40, (minRadiusPx / containerSize) * 100);
+  const cardWidth = 140;
+  const margin = 20;
+  const minRadiusPx = (cardWidth * Math.SQRT2) / (2 * Math.sin(Math.PI / n)) + margin;
+  const containerSize = Math.min(920, minRadiusPx / 0.4);
+  const radiusPct = (minRadiusPx / containerSize) * 100;
 
   return (
     <div className="relative mx-auto" style={{ maxWidth: containerSize, aspectRatio: '1 / 1' }}>
