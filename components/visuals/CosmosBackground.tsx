@@ -41,11 +41,11 @@ export default function CosmosBackground({ appearance }: { appearance: Appearanc
         className="absolute inset-0"
         style={{
           background: `
-            radial-gradient(ellipse 65% 45% at 22% 18%, rgba(255,43,194,${0.4 * glow}), transparent 62%),
+            radial-gradient(ellipse 65% 45% at 22% 18%, rgba(47,143,224,${0.4 * glow}), transparent 62%),
             radial-gradient(ellipse 45% 32% at 78% 10%, rgba(34,230,210,${0.14 * glow}), transparent 60%),
             radial-gradient(ellipse 60% 45% at 85% 55%, rgba(168,60,220,${0.36 * glow}), transparent 62%),
             radial-gradient(ellipse 50% 38% at 60% 30%, rgba(255,111,216,${0.16 * glow}), transparent 58%),
-            radial-gradient(ellipse 60% 45% at 15% 72%, rgba(255,43,194,${0.24 * glow}), transparent 60%),
+            radial-gradient(ellipse 60% 45% at 15% 72%, rgba(47,143,224,${0.24 * glow}), transparent 60%),
             radial-gradient(ellipse 45% 32% at 35% 85%, rgba(142,235,255,${0.1 * glow}), transparent 55%),
             linear-gradient(180deg, #0d0318 0%, #1c0a34 25%, #3a1257 55%, #29073f 80%, #0a0413 100%)
           `
@@ -68,7 +68,7 @@ export default function CosmosBackground({ appearance }: { appearance: Appearanc
             width: 'min(1100px, 140vw)',
             height: 'min(1100px, 140vw)',
             opacity: 0.16,
-            filter: `drop-shadow(0 0 ${40 * glow}px rgba(255,43,194,0.3)) drop-shadow(0 0 ${70 * glow}px rgba(34,230,210,0.2))`
+            filter: `drop-shadow(0 0 ${40 * glow}px rgba(47,143,224,0.3)) drop-shadow(0 0 ${70 * glow}px rgba(34,230,210,0.2))`
           }}
           dangerouslySetInnerHTML={{ __html: crystalMandalaSvg() }}
         />
@@ -96,7 +96,7 @@ function FairySprites({ glow }: { glow: number }) {
       left: i % 2 === 0 ? 2 + Math.random() * 6 : 90 + Math.random() * 6,
       top: 10 + Math.random() * 75,
       delay: Math.random() * 4,
-      hue: ['#FF2BC2', '#22E6D2', '#FFD978'][i % 3]
+      hue: ['#2F8FE0', '#22E6D2', '#FFD978'][i % 3]
     }))
   );
 
@@ -149,7 +149,7 @@ function buildStarsAndMilkyWay(appearance: AppearanceConfig): string {
       for (let i = 0; i < 2; i++) {
         const x = 80 + Math.random() * 840,
           y = yOff + 40 + Math.random() * 300;
-        const c = ['#FF2BC2', '#22E6D2', '#FFD978'][Math.floor(Math.random() * 3)];
+        const c = ['#2F8FE0', '#22E6D2', '#FFD978'][Math.floor(Math.random() * 3)];
         content += `<g transform="translate(${x},${y})" opacity="0.8">
           <circle r="15" fill="url(#starGlow)" opacity="0.5"/>
           ${[0, 45, 90, 135]
@@ -165,7 +165,7 @@ function buildStarsAndMilkyWay(appearance: AppearanceConfig): string {
 }
 
 function crystalMandalaSvg(): string {
-  const colors = ['#FF2BC2', '#22E6D2', '#FFD978'];
+  const colors = ['#2F8FE0', '#22E6D2', '#FFD978'];
   let g = `<circle cx="200" cy="200" r="20" fill="#F8F4FF" opacity="0.7"/>`;
   const rings = [
     { count: 6, r: 60, size: 34 },
@@ -192,13 +192,13 @@ function crystalMandalaSvg(): string {
 
 function buildWaveStreaks(): string {
   const colors = [
-    { c: '#FF2BC2', w: 2 },
+    { c: '#2F8FE0', w: 2 },
     { c: '#B14BFF', w: 1.6 },
     { c: '#22E6D2', w: 1.8 },
     { c: '#FFD978', w: 1.2 },
     { c: '#FF6FD8', w: 1.4 },
     { c: '#8EEBFF', w: 1.1 },
-    { c: '#FF2BC2', w: 1.3 }
+    { c: '#2F8FE0', w: 1.3 }
   ];
   let defs = '<defs>';
   colors.forEach((c, i) => {
