@@ -52,7 +52,7 @@ export default async function SchedulePage() {
           ))}
         </div>
 
-        <a href="/online" className="inline-block mt-10 px-6 py-3 rounded-full text-sm font-semibold" style={{ background: 'linear-gradient(90deg,#FF2BC2,#22E6D2)', color: '#120625' }}>
+        <a href="/online" className="inline-block mt-10 px-6 py-3 rounded-full text-sm font-semibold" style={{ background: 'linear-gradient(90deg,#2F8FE0,#22E6D2)', color: '#120625' }}>
           Смотреть онлайн-трансляцию
         </a>
       </div>
