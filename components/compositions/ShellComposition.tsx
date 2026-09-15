@@ -1,15 +1,23 @@
 'use client';
 
 /**
- * Композиция «Раковина»: карточки расходятся мягкой спиралью от
- * центрального образа перламутровой раковины. На мобильных — обычная
- * вертикальная последовательность карточек (см. .circle-item в CSS).
+ * Композиция «Раковина»: карточки равномерно распределены по кругу
+ * вокруг центрального перламутрового свечения. Радиус подобран так,
+ * чтобы карточки не перекрывали друг друга даже при 12 элементах.
+ * На мобильных — обычная вертикальная последовательность карточек
+ * (см. .circle-item в CSS).
  */
 export default function ShellComposition({ items }: { items: { title: string; description?: string }[] }) {
   const n = items.length;
+  const cardWidth = 168;
+  // минимальный радиус (в % от ширины контейнера), при котором соседние
+  // карточки на круге не накладываются друг на друга
+  const containerSize = 880;
+  const minRadiusPx = cardWidth / (2 * Math.sin(Math.PI / n)) + 20;
+  const radiusPct = Math.min(40, (minRadiusPx / containerSize) * 100);
 
   return (
-    <div className="relative mx-auto" style={{ maxWidth: 720, height: 640 }}>
+    <div className="relative mx-auto" style={{ maxWidth: containerSize, aspectRatio: '1 / 1' }}>
       <div
         className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full"
         style={{
@@ -20,11 +28,9 @@ export default function ShellComposition({ items }: { items: { title: string; de
         }}
       />
       {items.map((item, i) => {
-        const t = i / n;
-        const angle = t * Math.PI * 2.4 - Math.PI / 2; // спираль чуть больше круга
-        const radius = 90 + t * 180;
-        const x = 50 + (radius * Math.cos(angle)) / 6.4;
-        const y = 50 + (radius * Math.sin(angle)) / 6.4;
+        const angle = (i / n) * Math.PI * 2 - Math.PI / 2; // ровный круг, старт сверху
+        const x = 50 + radiusPct * Math.cos(angle);
+        const y = 50 + radiusPct * Math.sin(angle);
         return (
           <div
             key={item.title}
@@ -33,7 +39,7 @@ export default function ShellComposition({ items }: { items: { title: string; de
               left: `${x}%`,
               top: `${y}%`,
               transform: 'translate(-50%,-50%)',
-              width: 168
+              width: cardWidth
             }}
           >
             <p className="text-sm font-semibold text-pearl">{item.title}</p>
