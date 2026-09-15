@@ -68,9 +68,9 @@ export default function SiteHeader({ site }: { site: SiteConfig }) {
                 style={
                   isActive
                     ? {
-                        background: 'linear-gradient(90deg,#FF2BC2,#22E6D2)',
+                        background: 'linear-gradient(90deg,#2F8FE0,#22E6D2)',
                         color: '#120625',
-                        boxShadow: '0 0 18px rgba(255,43,194,0.45)'
+                        boxShadow: '0 0 18px rgba(47,143,224,0.45)'
                       }
                     : {
                         background: 'linear-gradient(120deg, rgba(255,217,120,0.28), rgba(248,244,255,0.10))',
@@ -99,7 +99,7 @@ export default function SiteHeader({ site }: { site: SiteConfig }) {
         <a
           href="#registration"
           className="hidden lg:inline-block text-sm px-5 py-2.5 rounded-full font-bold shrink-0"
-          style={{ background: 'linear-gradient(90deg,#FF2BC2,#22E6D2)', color: '#120625' }}
+          style={{ background: 'linear-gradient(90deg,#2F8FE0,#22E6D2)', color: '#120625' }}
         >
           {site.cta.participate}
         </a>
@@ -146,7 +146,7 @@ export default function SiteHeader({ site }: { site: SiteConfig }) {
             href="#registration"
             onClick={() => setOpen(false)}
             className="mt-2 text-center px-4 py-3.5 rounded-full font-bold"
-            style={{ background: 'linear-gradient(90deg,#FF2BC2,#22E6D2)', color: '#120625' }}
+            style={{ background: 'linear-gradient(90deg,#2F8FE0,#22E6D2)', color: '#120625' }}
           >
             {site.cta.participate}
           </a>

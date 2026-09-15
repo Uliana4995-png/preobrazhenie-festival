@@ -37,18 +37,6 @@ export default function CampfireSection({
         size={320}
       />
 
-      {appearance.images.dove ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img src={appearance.images.dove} alt="" className="absolute top-[12%] right-[10%] w-24 opacity-85 animate-drift fx-medium" />
-      ) : (
-        <svg viewBox="0 0 110 70" className="absolute top-[12%] right-[10%] w-24 opacity-85 animate-drift fx-medium" aria-hidden="true">
-          <g fill="rgba(248,244,255,0.92)">
-            <path d="M55 38 C50 24 40 16 26 14 C34 22 38 28 38 34 C24 26 12 26 2 32 C14 30 24 34 32 42 C20 42 10 46 2 54 C16 50 28 48 38 52 C36 58 36 62 40 68 C42 60 46 54 52 50 Z" />
-            <path d="M55 38 C60 24 70 16 84 14 C76 22 72 28 72 34 C86 26 98 26 108 32 C96 30 86 34 78 42 C90 42 100 46 108 54 C94 50 82 48 72 52 C74 58 74 62 70 68 C68 60 64 54 58 50 Z" />
-          </g>
-        </svg>
-      )}
-
       <div className="fx-heavy absolute bottom-[70px] left-1/2 -translate-x-1/2 z-[3]" style={{ filter: 'drop-shadow(0 0 40px rgba(255,150,40,0.75))' }}>
         <svg width="140" height="190" viewBox="0 0 140 190">
           <defs>
@@ -96,7 +84,7 @@ export default function CampfireSection({
       </div>
 
       <div className="fx-medium absolute bottom-[60px] left-0 right-0 flex justify-center gap-10 opacity-75 z-[2]">
-        {['#FF2BC2', '#22E6D2', '#FFD978'].map((c, i) => (
+        {['#2F8FE0', '#22E6D2', '#FFD978'].map((c, i) => (
           <svg key={i} width="90" height="70" viewBox="0 0 90 70">
             <path d="M5 65 L45 10 L85 65 Z" fill={`${c}55`} stroke="rgba(255,217,120,0.7)" strokeWidth="2" />
           </svg>
@@ -105,7 +93,7 @@ export default function CampfireSection({
 
       <div className="relative z-[4] mx-auto max-w-3xl px-5 sm:px-8 text-center">
         <p className="text-sm text-gold mb-2">Кемпинг в горах</p>
-        <h2 className="heading-loft text-3xl sm:text-5xl" style={{ textShadow: '0 0 20px rgba(255,170,60,0.85), 0 0 40px rgba(255,43,194,0.4)' }}>
+        <h2 className="heading-loft text-3xl sm:text-5xl" style={{ textShadow: '0 0 20px rgba(255,170,60,0.85), 0 0 40px rgba(47,143,224,0.4)' }}>
           Костёр единения
         </h2>
         <p className="mt-4 text-pearl/80 max-w-xl mx-auto">
@@ -131,7 +119,7 @@ export default function CampfireSection({
                   className="rounded-2xl px-4 py-3 text-sm flex items-center justify-between"
                   style={
                     isActive
-                      ? { background: 'linear-gradient(90deg, rgba(255,43,194,0.25), rgba(34,230,210,0.2))', border: '1px solid rgba(34,230,210,0.5)' }
+                      ? { background: 'linear-gradient(90deg, rgba(47,143,224,0.25), rgba(34,230,210,0.2))', border: '1px solid rgba(34,230,210,0.5)' }
                       : { border: '1px solid rgba(255,217,120,0.2)' }
                   }
                 >
@@ -163,7 +151,7 @@ export default function CampfireSection({
           <a
             href="#registration"
             className="px-6 py-3.5 rounded-full font-bold text-sm"
-            style={{ background: 'linear-gradient(90deg,#FF2BC2,#22E6D2)', color: '#120625' }}
+            style={{ background: 'linear-gradient(90deg,#2F8FE0,#22E6D2)', color: '#120625' }}
           >
             Забронировать место
           </a>

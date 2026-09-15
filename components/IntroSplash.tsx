@@ -49,7 +49,7 @@ export default function IntroSplash({
         className="absolute inset-0"
         style={{
           background:
-            'radial-gradient(ellipse 70% 50% at 50% 30%, rgba(255,43,194,0.28), transparent 60%), radial-gradient(ellipse 60% 50% at 50% 80%, rgba(34,230,210,0.22), transparent 60%)'
+            'radial-gradient(ellipse 70% 50% at 50% 30%, rgba(47,143,224,0.28), transparent 60%), radial-gradient(ellipse 60% 50% at 50% 80%, rgba(34,230,210,0.22), transparent 60%)'
         }}
       />
       <Phoenix className="fx-medium absolute w-[70vw] max-w-[620px] opacity-70 animate-drift" />
@@ -88,7 +88,7 @@ export default function IntroSplash({
             href="#registration"
             onClick={dismiss}
             className="px-7 py-3 rounded-full font-bold text-sm"
-            style={{ background: 'linear-gradient(90deg,#FF2BC2,#22E6D2)', color: '#120625' }}
+            style={{ background: 'linear-gradient(90deg,#2F8FE0,#22E6D2)', color: '#120625' }}
           >
             Присоединяйтесь к Преображению
           </a>

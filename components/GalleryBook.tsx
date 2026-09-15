@@ -5,12 +5,12 @@ import type { GalleryImage } from '@/lib/content';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 
 const PALETTE = [
-  ['#3a1a52', '#1a0a2e', '#FF2BC2'],
+  ['#3a1a52', '#1a0a2e', '#2F8FE0'],
   ['#0e3b38', '#0a0413', '#22E6D2'],
   ['#4a2e10', '#120625', '#FFD978'],
   ['#2a1444', '#120625', '#8a4fd8'],
   ['#153a2a', '#0a0413', '#4fd88a'],
-  ['#3a1030', '#120625', '#FF2BC2'],
+  ['#3a1030', '#120625', '#2F8FE0'],
   ['#123a3a', '#0a0413', '#22E6D2'],
   ['#453017', '#120625', '#FFD978']
 ];
@@ -41,7 +41,7 @@ export default function GalleryBook({ images }: { images: GalleryImage[] }) {
             className="shrink-0 px-4 py-2 rounded-full text-xs font-semibold border"
             style={
               category === c
-                ? { background: 'linear-gradient(90deg,#FF2BC2,#22E6D2)', color: '#120625', border: 'none' }
+                ? { background: 'linear-gradient(90deg,#2F8FE0,#22E6D2)', color: '#120625', border: 'none' }
                 : { borderColor: 'rgba(255,217,120,0.35)', color: 'rgba(248,244,255,0.75)' }
             }
           >
