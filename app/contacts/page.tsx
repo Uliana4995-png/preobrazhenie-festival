@@ -64,7 +64,7 @@ export default async function ContactsPage() {
               <li>— Своя палатка — без доплаты</li>
               <li>— Питание самостоятельно или по общему меню (отдельно)</li>
             </ul>
-            <a href="/#registration" className="inline-block mt-5 px-5 py-2.5 rounded-full text-sm font-semibold" style={{ background: 'linear-gradient(90deg,#FF2BC2,#22E6D2)', color: '#120625' }}>
+            <a href="/#registration" className="inline-block mt-5 px-5 py-2.5 rounded-full text-sm font-semibold" style={{ background: 'linear-gradient(90deg,#2F8FE0,#22E6D2)', color: '#120625' }}>
               Забронировать место
             </a>
           </div>
