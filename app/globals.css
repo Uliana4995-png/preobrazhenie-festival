@@ -6,7 +6,7 @@
 :root {
   --c-void: #120625;
   --c-indigo: #1C1140;
-  --c-fuchsia: #FF2BC2;
+  --c-fuchsia: #2F8FE0;
   --c-turquoise: #22E6D2;
   --c-pearl: #F8F4FF;
   --c-pearl-soft: #EADCF7;
@@ -45,7 +45,7 @@ body {
 /* ===================== Перламутровые пластичные карточки ===================== */
 .pearl-card {
   position: relative;
-  background: linear-gradient(160deg, rgba(248,244,255,0.14), rgba(248,244,255,0.03) 55%, rgba(255,43,194,0.05));
+  background: linear-gradient(160deg, rgba(248,244,255,0.14), rgba(248,244,255,0.03) 55%, rgba(47,143,224,0.05));
   border: 1px solid rgba(255,217,120,0.28);
   backdrop-filter: blur(10px);
   border-radius: 42px 26px 46px 24px / 26px 42px 24px 46px;
@@ -54,7 +54,7 @@ body {
 }
 .pearl-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 16px 44px rgba(0,0,0,0.4), 0 0 30px rgba(255,43,194,0.18), inset 0 0 24px rgba(255,255,255,0.08);
+  box-shadow: 0 16px 44px rgba(0,0,0,0.4), 0 0 30px rgba(47,143,224,0.18), inset 0 0 24px rgba(255,255,255,0.08);
 }
 .pearl-card.tight { border-radius: 30px 18px 34px 16px / 18px 30px 16px 34px; padding: 24px 26px; }
 
@@ -66,7 +66,7 @@ body {
 .rule-gold { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,217,120,0.6), transparent); }
 
 :focus-visible { outline: 2px solid var(--c-turquoise); outline-offset: 3px; border-radius: 2px; }
-::selection { background: rgba(255,43,194,0.35); color: #fff; }
+::selection { background: rgba(47,143,224,0.35); color: #fff; }
 
 /* ===================== Заголовки: изящный лёгкий гротеск, заглавные, свечение ===================== */
 .heading-loft {
@@ -79,7 +79,7 @@ body {
   text-shadow:
     0 0 2px rgba(255,255,255,0.45),
     0 0 14px rgba(34,230,210, calc(0.4 * var(--glow-intensity))),
-    0 0 24px rgba(255,43,194, calc(0.32 * var(--glow-intensity))),
+    0 0 24px rgba(47,143,224, calc(0.32 * var(--glow-intensity))),
     0 2px 8px rgba(0,0,0,0.5);
 }
 /* h1 крупнее остальных, но пропорционально легче прежнего */
