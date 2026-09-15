@@ -72,7 +72,7 @@ export default function AppearanceEditor() {
           onClick={save}
           disabled={status === 'saving'}
           className="px-4 py-2 rounded-full text-sm font-semibold disabled:opacity-60"
-          style={{ background: 'linear-gradient(90deg,#FF2BC2,#22E6D2)', color: '#120625' }}
+          style={{ background: 'linear-gradient(90deg,#2F8FE0,#22E6D2)', color: '#120625' }}
         >
           {status === 'saving' ? 'Сохранение…' : status === 'saved' ? 'Сохранено ✓' : 'Сохранить'}
         </button>
@@ -89,7 +89,7 @@ export default function AppearanceEditor() {
               className="px-4 py-2 rounded-full text-xs border"
               style={
                 data.effectsLevel === lvl
-                  ? { background: 'linear-gradient(90deg,#FF2BC2,#22E6D2)', color: '#120625', border: 'none' }
+                  ? { background: 'linear-gradient(90deg,#2F8FE0,#22E6D2)', color: '#120625', border: 'none' }
                   : { borderColor: 'rgba(255,217,120,0.35)', color: 'rgba(248,244,255,0.7)' }
               }
             >
@@ -189,17 +189,13 @@ export default function AppearanceEditor() {
 
       <section className="pearl-card tight space-y-4">
         <p className="text-xs uppercase text-turquoise mb-1">Изображения (URL)</p>
-        {(['phoenix', 'mandala', 'campsite', 'dove', 'introVideo'] as const).map((key) => (
+        {(['mandala', 'campsite', 'introVideo'] as const).map((key) => (
           <label key={key} className="block">
             <span className="block text-xs text-pearl/60 mb-1.5">
-              {key === 'phoenix'
-                ? 'Изображение феникса'
-                : key === 'mandala'
+              {key === 'mandala'
                 ? 'Изображение мандалы'
                 : key === 'campsite'
                 ? 'Изображение палаточного лагеря'
-                : key === 'dove'
-                ? 'Изображение голубки'
                 : 'Фоновое видео (intro)'}
             </span>
             <input
