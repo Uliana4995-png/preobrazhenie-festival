@@ -14,8 +14,8 @@ const config: Config = {
         void: '#120625',
         indigoDeep: '#1C1140',
         fuchsia: {
-          DEFAULT: '#FF2BC2',
-          soft: '#c94fc0'
+          DEFAULT: '#2F8FE0',
+          soft: '#5aa9e6'
         },
         turquoise: {
           DEFAULT: '#22E6D2',
