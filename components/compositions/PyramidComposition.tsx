@@ -20,7 +20,7 @@ export default function PyramidComposition({ items }: { items: { title: string; 
                 borderRight: '11px solid transparent',
                 ...(up
                   ? { borderBottom: '18px solid #22E6D2' }
-                  : { borderTop: '18px solid #FF2BC2' })
+                  : { borderTop: '18px solid #2F8FE0' })
               }}
             />
             <p className="text-sm font-semibold text-pearl mb-1">{item.title}</p>

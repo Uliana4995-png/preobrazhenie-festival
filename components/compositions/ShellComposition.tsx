@@ -15,7 +15,7 @@ export default function ShellComposition({ items }: { items: { title: string; de
         style={{
           width: 130,
           height: 130,
-          background: 'radial-gradient(circle, rgba(248,244,255,0.4), rgba(255,43,194,0.12) 60%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(248,244,255,0.4), rgba(47,143,224,0.12) 60%, transparent 70%)',
           filter: 'blur(2px)'
         }}
       />
