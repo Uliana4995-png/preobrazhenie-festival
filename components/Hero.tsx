@@ -5,7 +5,7 @@ import FernFrame from './visuals/FernFrame';
 
 export default function Hero({ site, appearance }: { site: SiteConfig; appearance: AppearanceConfig }) {
   return (
-    <section id="top" className="snap-page relative min-h-screen flex items-end overflow-hidden">
+    <section id="top" className="snap-page relative min-h-[78vh] sm:min-h-[85vh] flex items-end overflow-hidden">
       <FernFrame position="bottom" />
       <SacredSigil
         type={appearance.sectionSigils.hero || 'crystalstar'}
@@ -41,7 +41,7 @@ export default function Hero({ site, appearance }: { site: SiteConfig; appearanc
             <a
               href="#registration"
               className="px-6 py-3.5 rounded-full font-bold text-sm"
-              style={{ background: 'linear-gradient(90deg,#FF2BC2,#22E6D2)', color: '#120625' }}
+              style={{ background: 'linear-gradient(90deg,#2F8FE0,#22E6D2)', color: '#120625' }}
             >
               {site.cta.participate}
             </a>
