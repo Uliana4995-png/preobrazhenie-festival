@@ -147,8 +147,11 @@ function buildStarsAndMilkyWay(appearance: AppearanceConfig): string {
         content += `<circle cx="${x}" cy="${y}" r="${r}" fill="#F8F4FF" opacity="${0.35 + Math.random() * 0.5}"/>`;
       });
       for (let i = 0; i < 2; i++) {
-        const x = 80 + Math.random() * 840,
-          y = yOff + 40 + Math.random() * 300;
+        // крупные звёзды держим у краёв страницы (левые 15% / правые 15%),
+        // чтобы они не оказывались поверх текста и карточек в центре
+        const onLeft = Math.random() < 0.5;
+        const x = onLeft ? 40 + Math.random() * 110 : 850 + Math.random() * 110;
+        const y = yOff + 40 + Math.random() * 300;
         const c = ['#2F8FE0', '#22E6D2', '#FFD978'][Math.floor(Math.random() * 3)];
         content += `<g transform="translate(${x},${y})" opacity="0.8">
           <circle r="15" fill="url(#starGlow)" opacity="0.5"/>
