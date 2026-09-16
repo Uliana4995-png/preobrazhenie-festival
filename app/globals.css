@@ -19,6 +19,7 @@
 html {
   scroll-behavior: smooth;
   background: var(--c-void);
+  overflow-x: hidden;
 }
 
 /* Три уровня визуальных эффектов, переключаются атрибутом data-fx на <html>
@@ -40,6 +41,7 @@ html[data-fx='optimized'] .fx-heavy { display: none !important; }
 body {
   background-color: var(--c-void);
   color: var(--c-pearl);
+  overflow-x: hidden;
 }
 
 /* ===================== Перламутровые пластичные карточки ===================== */
