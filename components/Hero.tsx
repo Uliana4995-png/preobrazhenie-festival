@@ -5,7 +5,7 @@ import FernFrame from './visuals/FernFrame';
 
 export default function Hero({ site, appearance }: { site: SiteConfig; appearance: AppearanceConfig }) {
   return (
-    <section id="top" className="snap-page relative min-h-[50vh] sm:min-h-[70vh] flex items-end overflow-hidden">
+    <section id="top" className="snap-page relative min-h-[45vh] sm:min-h-[55vh] flex items-end overflow-hidden">
       <FernFrame position="bottom" />
       <SacredSigil
         type={appearance.sectionSigils.hero || 'crystalstar'}
