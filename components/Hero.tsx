@@ -39,7 +39,7 @@ export default function Hero({ site, appearance }: { site: SiteConfig; appearanc
 
           <div className="mt-10 flex flex-wrap gap-3">
             
-              href="#registration"
+              <a href="#registration"
               className="px-6 py-3.5 rounded-full font-bold text-sm"
               style={{ background: 'linear-gradient(90deg,#2F8FE0,#22E6D2)', color: '#120625' }}
             >
