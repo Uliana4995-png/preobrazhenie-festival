@@ -7,7 +7,10 @@ const nextConfig = {
     ]
   },
   experimental: {
-    typedRoutes: false
+    typedRoutes: false,
+    outputFileTracingIncludes: {
+      '/**': ['./content/**/*']
+    }
   }
 };
 
