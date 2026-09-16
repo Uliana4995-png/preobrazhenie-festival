@@ -105,7 +105,17 @@ h1.heading-loft, .heading-loft.text-4xl, .heading-loft.text-5xl, .heading-loft.t
 .snap-book {
   scroll-snap-type: y proximity; /* proximity — не блокирует свободную прокрутку */
 }
-.snap-page { scroll-snap-align: start; }
+.snap-page {
+  scroll-snap-align: start;
+  padding-top: 3rem !important;
+  padding-bottom: 3rem !important;
+}
+@media (min-width: 640px) {
+  .snap-page {
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+  }
+}
 
 /* Круговые/пирамидальные композиции → простой вертикальный список на мобильных */
 @media (max-width: 768px) {
