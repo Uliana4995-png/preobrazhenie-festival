@@ -5,7 +5,7 @@ import FernFrame from './visuals/FernFrame';
 
 export default function Hero({ site, appearance }: { site: SiteConfig; appearance: AppearanceConfig }) {
   return (
-    <section id="top" className="snap-page relative min-h-[78vh] sm:min-h-[85vh] flex items-end overflow-hidden">
+    <section id="top" className="snap-page relative min-h-[50vh] sm:min-h-[70vh] flex items-end overflow-hidden">
       <FernFrame position="bottom" />
       <SacredSigil
         type={appearance.sectionSigils.hero || 'crystalstar'}
@@ -23,7 +23,7 @@ export default function Hero({ site, appearance }: { site: SiteConfig; appearanc
         <path d="M0 260 L0 200 L200 120 L380 190 L560 110 L760 200 L960 130 L1200 210 L1200 260 Z" fill="#120625" />
       </svg>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8 pb-24 pt-40 w-full">
+      <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8 pb-16 pt-20 w-full">
         <div className="max-w-2xl">
           <p className="text-sm tracking-wide text-gold mb-4">
             {site.dates.display} · {site.location.region}
@@ -38,7 +38,7 @@ export default function Hero({ site, appearance }: { site: SiteConfig; appearanc
           </p>
 
           <div className="mt-10 flex flex-wrap gap-3">
-            <a
+            
               href="#registration"
               className="px-6 py-3.5 rounded-full font-bold text-sm"
               style={{ background: 'linear-gradient(90deg,#2F8FE0,#22E6D2)', color: '#120625' }}
