@@ -133,3 +133,7 @@ h1.heading-loft, .heading-loft.text-4xl, .heading-loft.text-5xl, .heading-loft.t
 }
 .reveal { opacity: 0; transform: translateY(24px); }
 .reveal.in-view { animation: fadeUp .8s ease-out both; }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
