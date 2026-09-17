@@ -45,11 +45,6 @@ export async function writeContent<T>(fileName: string, data: T): Promise<void> 
   await fs.writeFile(filePath, JSON.stringify(data, null, 2) + '\n', 'utf-8');
 }
 
-export async function writeContent<T>(fileName: string, data: T): Promise<void> {
-  const filePath = path.join(CONTENT_DIR, fileName);
-  await fs.writeFile(filePath, JSON.stringify(data, null, 2) + '\n', 'utf-8');
-}
-
 export interface SiteConfig {
   year: number;
   dates: { start: string; end: string; display: string };
