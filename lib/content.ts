@@ -1,25 +1,48 @@
 import 'server-only';
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import { getSupabaseAdminClient } from './supabase';
 
 const CONTENT_DIR = path.join(process.cwd(), 'content');
 
 /**
  * Универсальный загрузчик контента сайта.
  *
- * Все тексты, цены, программа и т.д. хранятся в /content/*.json.
- * Организатор может редактировать эти файлы напрямую (через GitHub
- * или через встроенную мини-админку /admin, см. app/api/admin/content),
- * не трогая код компонентов.
- *
- * Если в будущем подключается Supabase (см. README, раздел
- * "Подключение Supabase"), эту функцию можно заменить на запрос
- * к таблице `site_content` без изменения компонентов, которые её вызывают.
+ * Если заданы переменные окружения Supabase, контент читается и
+ * сохраняется в таблице `site_content` — это единственный способ,
+ * чтобы правки через /admin реально сохранялись на Vercel (файловая
+ * система там временная). Пока в Supabase нет строки для файла —
+ * используются значения по умолчанию из /content/*.json.
  */
 export async function readContent<T>(fileName: string): Promise<T> {
+  const key = fileName.replace(/\.json$/, '');
+  const supabase = getSupabaseAdminClient();
+
+  if (supabase) {
+    const { data, error } = await supabase.from('site_content').select('data').eq('key', key).maybeSingle();
+    if (!error && data) return data.data as T;
+    if (error) console.error(`[content] Supabase read failed for ${key}, using bundled default:`, error.message);
+  }
+
   const filePath = path.join(CONTENT_DIR, fileName);
   const raw = await fs.readFile(filePath, 'utf-8');
   return JSON.parse(raw) as T;
+}
+
+export async function writeContent<T>(fileName: string, data: T): Promise<void> {
+  const key = fileName.replace(/\.json$/, '');
+  const supabase = getSupabaseAdminClient();
+
+  if (supabase) {
+    const { error } = await supabase
+      .from('site_content')
+      .upsert({ key, data, updated_at: new Date().toISOString() });
+    if (!error) return;
+    console.error(`[content] Supabase write failed for ${key}, falling back to local file:`, error.message);
+  }
+
+  const filePath = path.join(CONTENT_DIR, fileName);
+  await fs.writeFile(filePath, JSON.stringify(data, null, 2) + '\n', 'utf-8');
 }
 
 export async function writeContent<T>(fileName: string, data: T): Promise<void> {
