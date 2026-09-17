@@ -23,16 +23,11 @@ export default function Location({ site, appearance }: { site: SiteConfig; appea
             <li>— Покрытые мхом камни и вековые деревья</li>
           </ul>
         </Reveal>
-        <Reveal className="relative rounded-[42px_26px_46px_24px/26px_42px_24px_46px] overflow-hidden pearl-card h-72 lg:h-96 flex items-center justify-center">
-          {site.location.mapEmbedUrl ? (
+        {site.location.mapEmbedUrl && (
+          <Reveal className="relative rounded-[42px_26px_46px_24px/26px_42px_24px_46px] overflow-hidden pearl-card h-72 lg:h-96 flex items-center justify-center">
             <iframe src={site.location.mapEmbedUrl} className="w-full h-full border-0" loading="lazy" title="Карта места проведения" />
-          ) : (
-            <p className="text-pearl/50 text-sm px-6 text-center">
-              Здесь появится карта проезда после того, как организатор добавит ссылку в административной панели
-              (site.json → location.mapEmbedUrl).
-            </p>
-          )}
-        </Reveal>
+          </Reveal>
+        )}
       </div>
     </section>
   );
