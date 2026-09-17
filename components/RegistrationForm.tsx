@@ -51,7 +51,7 @@ export default function RegistrationForm({ packages, dayPrice }: { packages: Pac
         body: JSON.stringify(data)
       });
       const json = await res.json();
-      if (!res.ok) throw new Error(json.error || 'Не удалось отправить заявку');
+      if (!res.ok) throw new Error(json.error || 'Не удалось ');
 
       if (format === 'офлайн' && total > 0) {
         const paymentRes = await fetch('/api/payment/create', {
@@ -204,7 +204,7 @@ export default function RegistrationForm({ packages, dayPrice }: { packages: Pac
               ? 'Отправка…'
               : format === 'офлайн' && total > 0
               ? 'Перейти к оплате'
-              : 'Отправить заявку'}
+              : ''}
           </button>
         </form>
       </div>
