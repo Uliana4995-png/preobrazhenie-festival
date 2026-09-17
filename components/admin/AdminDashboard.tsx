@@ -5,8 +5,9 @@ import { useRouter } from 'next/navigation';
 import ContentEditor from './ContentEditor';
 import SubmissionsPanel from './SubmissionsPanel';
 import AppearanceEditor from './AppearanceEditor';
+import ContactsEditor from './ContactsEditor';
 
-const TABS = ['Контент сайта', 'Внешний вид', 'Заявки и заказы'] as const;
+const TABS = ['Контент сайта', 'Контакты', 'Внешний вид', 'Заявки и заказы'] as const;
 
 export default function AdminDashboard() {
   const router = useRouter();
@@ -39,6 +40,7 @@ export default function AdminDashboard() {
       </div>
 
       {tab === 'Контент сайта' && <ContentEditor />}
+      {tab === 'Контакты' && <ContactsEditor />}
       {tab === 'Внешний вид' && <AppearanceEditor />}
       {tab === 'Заявки и заказы' && <SubmissionsPanel />}
     </div>
