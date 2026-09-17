@@ -109,8 +109,8 @@ h1.heading-loft, .heading-loft.text-4xl, .heading-loft.text-5xl, .heading-loft.t
 }
 .snap-page {
   scroll-snap-align: start;
-  padding-top: 3rem !important;
-  padding-bottom: 3rem !important;
+  padding-top: 1.5rem !important;
+  padding-bottom: 1.5rem !important;
 }
 @media (min-width: 640px) {
   .snap-page {
