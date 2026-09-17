@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const FILES: { file: string; label: string }[] = [
   { file: 'site.json', label: 'Основные настройки сайта (название, даты, ссылки)' },
@@ -23,6 +23,9 @@ export default function ContentEditor() {
   const [text, setText] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'saving' | 'saved' | 'error'>('idle');
   const [error, setError] = useState('');
+  const [uploading, setUploading] = useState(false);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -73,6 +76,41 @@ export default function ContentEditor() {
     }
   };
 
+  const handleFileSelected = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    e.target.value = '';
+    if (!file) return;
+
+    setUploading(true);
+    setError('');
+    try {
+      const formData = new FormData();
+      formData.append('file', file);
+      const res = await fetch('/api/admin/upload', { method: 'POST', body: formData });
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error || 'Не удалось загрузить фото');
+
+      const url = json.url as string;
+      const textarea = textareaRef.current;
+      if (textarea) {
+        const start = textarea.selectionStart ?? text.length;
+        const end = textarea.selectionEnd ?? text.length;
+        const newText = text.slice(0, start) + url + text.slice(end);
+        setText(newText);
+        requestAnimationFrame(() => {
+          textarea.focus();
+          textarea.selectionStart = textarea.selectionEnd = start + url.length;
+        });
+      } else {
+        setText((t) => t + url);
+      }
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Ошибка загрузки фото');
+    } finally {
+      setUploading(false);
+    }
+  };
+
   return (
     <div className="grid lg:grid-cols-[260px_1fr] gap-6">
       <div className="space-y-1">
@@ -90,22 +128,34 @@ export default function ContentEditor() {
       </div>
 
       <div className="pearl-card rounded-2xl p-5">
-        <div className="flex items-center justify-between mb-3">
+        <div className="flex items-center justify-between mb-3 flex-wrap gap-2">
           <p className="text-sm text-pearl/60">
             Редактирование <span className="font-mono text-gold">{selected}</span>
           </p>
-          <button
-            onClick={save}
-            disabled={status === 'saving' || status === 'loading'}
-            className="px-4 py-2 rounded-full bg-gradient-to-r from-fuchsia to-turquoise text-void text-sm font-semibold disabled:opacity-60"
-          >
-            {status === 'saving' ? 'Сохранение…' : status === 'saved' ? 'Сохранено ✓' : 'Сохранить'}
-          </button>
+          <div className="flex gap-2">
+            <button
+              onClick={() => fileInputRef.current?.click()}
+              disabled={uploading}
+              className="px-4 py-2 rounded-full border border-gold/30 text-pearl/80 text-sm disabled:opacity-60"
+            >
+              {uploading ? 'Загрузка фото…' : '📷 Загрузить фото'}
+            </button>
+            <button
+              onClick={save}
+              disabled={status === 'saving' || status === 'loading'}
+              className="px-4 py-2 rounded-full bg-gradient-to-r from-fuchsia to-turquoise text-void text-sm font-semibold disabled:opacity-60"
+            >
+              {status === 'saving' ? 'Сохранение…' : status === 'saved' ? 'Сохранено ✓' : 'Сохранить'}
+            </button>
+          </div>
         </div>
+
+        <input ref={fileInputRef} type="file" accept="image/*" onChange={handleFileSelected} className="hidden" />
 
         {error && <p className="error mb-2">{error}</p>}
 
         <textarea
+          ref={textareaRef}
           value={text}
           onChange={(e) => setText(e.target.value)}
           spellCheck={false}
@@ -113,10 +163,9 @@ export default function ContentEditor() {
         />
 
         <p className="text-xs text-pearl/40 mt-3">
-          Это прямой JSON-редактор содержимого сайта: измените значения и нажмите «Сохранить» — правки
-          применятся сразу после обновления страницы. На хостинге с временной файловой системой (например,
-          Vercel) изменения не сохранятся между развёртываниями — для продакшена подключите Supabase или
-          Decap CMS, см. README, раздел «Как редактировать контент после публикации».
+          Поставьте курсор туда, куда нужно вставить ссылку на фото (между кавычками поля вроде
+          "imageUrl"), затем нажмите «Загрузить фото» — ссылка подставится сама. После этого не
+          забудьте нажать «Сохранить».
         </p>
       </div>
     </div>
