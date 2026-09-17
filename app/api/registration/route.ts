@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { registrationSchema } from '@/lib/validation';
 import { createSubmission } from '@/lib/storage';
 import { checkRateLimit, getClientKey } from '@/lib/rateLimit';
+import { sendNotificationEmail } from '@/lib/email';
 
 export async function POST(request: Request) {
   const key = `registration:${getClientKey(request)}`;
@@ -32,9 +33,25 @@ export async function POST(request: Request) {
   const { website, ...payload } = parsed.data;
   const { id } = await createSubmission('registrations', payload);
 
-  // TODO: подключить отправку email-подтверждения участнику и уведомления
-  // организатору через EMAIL_API_KEY / ADMIN_EMAIL — см. README, раздел
-  // "Уведомления по email".
+  await sendNotificationEmail(
+    'Новая заявка на участие — Форум-Фестиваль «Преображение»',
+    `Новая заявка:
+
+Имя: ${payload.firstName} ${payload.lastName}
+Телефон: ${payload.phone}
+Email: ${payload.email}
+Telegram: ${payload.telegram || '-'}
+Город: ${payload.city}
+Даты: ${payload.dates}
+Формат: ${payload.format}
+Участников: ${payload.participants}
+Проживание: ${payload.accommodation}
+Питание: ${payload.meals}
+Нужен трансфер: ${payload.transferNeeded ? 'да' : 'нет'}
+Комментарий: ${payload.comment || '-'}
+
+ID заявки: ${id}`
+  );
 
   return NextResponse.json({ id }, { status: 201 });
 }
